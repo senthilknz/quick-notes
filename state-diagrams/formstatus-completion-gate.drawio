@@ -1,0 +1,76 @@
+<mxfile host="Electron" agent="formstatus-guide">
+  <diagram name="Completion gate" id="gate">
+    <mxGraphModel dx="1378" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="750" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="g-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1F2124;" value="The completion gate - all five markers must be IsComplete" vertex="1">
+          <mxGeometry height="40" width="800" x="150" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="g-sub" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontColor=#5A5A5A;" value="Evaluated on every PUT, after the mutations in steps 1 and 2 have been applied." vertex="1">
+          <mxGeometry height="24" width="800" x="150" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="g-group" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F8FC;strokeColor=#1D4E89;strokeWidth=2;dashed=1;verticalAlign=top;spacingTop=8;fontSize=11;fontColor=#0F2E52;fontStyle=2;" value="&lt;font face=&quot;Comic Sans MS&quot; style=&quot;font-size: 14px;&quot;&gt;stamped automatically by the xAPI&lt;br&gt;on a successful finance-summary&lt;/font&gt;" vertex="1">
+          <mxGeometry height="310" width="260" x="45" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="g-a" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=13;fontFamily=Courier New;gradientColor=#7ea6e0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;your-income&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="45" width="230" x="60" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="g-b" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=13;fontFamily=Courier New;gradientColor=#7ea6e0;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;fixed-commitments&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="45" width="230" x="60" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="g-c" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=13;fontFamily=Courier New;gradientColor=#7ea6e0;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;essential-living-costs&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="45" width="230" x="60" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="g-d" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=13;fontFamily=Courier New;gradientColor=#7ea6e0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;recurring-expenses&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="45" width="230" x="60" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="g-e" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=3;fontSize=13;fontFamily=Courier New;fontStyle=1;gradientColor=#ea6b66;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;likely-changes&lt;/font&gt;" vertex="1">
+          <mxGeometry height="45" width="230" x="60" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="g-elabel" parent="1" style="text;html=1;align=center;verticalAlign=top;fontSize=11;fontColor=#7A5A07;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px; color: rgb(204, 0, 102);&quot; face=&quot;Comic Sans MS&quot;&gt;the frontend must create this key -&lt;br&gt;nothing else will&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="260" x="45" y="482" as="geometry" />
+        </mxCell>
+        <mxCell id="g-gate" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffcd28;strokeColor=#d79b00;strokeWidth=2;fontSize=14;fontStyle=1;gradientColor=#ffa500;" value="All five&lt;br&gt;= IsComplete?" vertex="1">
+          <mxGeometry height="125" width="210" x="400" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="g-yes" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=13;gradientColor=#97d077;" value="&lt;font face=&quot;Comic Sans MS&quot; style=&quot;font-size: 15px;&quot;&gt;lendingApplyState.status&lt;br&gt;= &quot;IsComplete&quot;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="280" x="720" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="g-yesn" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#1B4D37;fontStyle=2;" value="&lt;font face=&quot;Comic Sans MS&quot; style=&quot;font-size: 14px;&quot;&gt;Journey complete. Idempotent -&lt;br&gt;a repeat PUT is a no-op.&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="280" x="720" y="257" as="geometry" />
+        </mxCell>
+        <mxCell id="g-no" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;fontSize=13;gradientColor=#b3b3b3;" value="&lt;font face=&quot;Comic Sans MS&quot; style=&quot;font-size: 15px;&quot;&gt;No status change&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="280" x="720" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="g-non" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontColor=#5A5A5A;fontStyle=2;" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;Comic Sans MS&quot;&gt;Stays InProgress. No error is returned -&lt;br&gt;the request succeeds either way.&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="280" x="720" y="402" as="geometry" />
+        </mxCell>
+        <mxCell id="g-ea" edge="1" parent="1" source="g-a" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1D4E89;strokeWidth=3;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="g-gate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g-eb" edge="1" parent="1" source="g-b" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1D4E89;strokeWidth=3;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="g-gate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g-ec" edge="1" parent="1" source="g-c" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1D4E89;strokeWidth=3;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="g-gate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g-ed" edge="1" parent="1" source="g-d" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1D4E89;strokeWidth=3;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="g-gate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g-ee" edge="1" parent="1" source="g-e" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#CC0066;strokeWidth=3;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="g-gate">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g-eyes" edge="1" parent="1" source="g-gate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2E7D5B;strokeWidth=3;fontSize=12;fontStyle=1;fontColor=#1B4D37;labelBackgroundColor=#FFFFFF;" target="g-yes" value="Yes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g-eno" edge="1" parent="1" source="g-gate" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8C8C8C;strokeWidth=3;fontSize=12;fontColor=#5A5A5A;labelBackgroundColor=#FFFFFF;" target="g-no" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="g-note" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4CE;strokeColor=#B8860B;strokeWidth=2;fontSize=12;fontColor=#1F2124;align=left;spacingLeft=12;verticalAlign=top;spacingTop=8;" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;Comic Sans MS&quot;&gt;&lt;b style=&quot;&quot;&gt;The most common integration bug lives here.&lt;/b&gt;&lt;br&gt;Four markers appear on their own. The fifth does not. If likely-changes is never created by the frontend, supplying isIncomeLikelyToChange is still accepted and the value still goes downstream - but the marker is never created, the gate stays shut, and the journey silently never completes. No error explains why.&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="955" x="45" y="555" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

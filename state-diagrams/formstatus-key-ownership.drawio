@@ -1,0 +1,91 @@
+<mxfile host="Electron" agent="formstatus-guide">
+  <diagram name="Key ownership" id="ownership">
+    <mxGraphModel dx="1378" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ow-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1F2124;" value="formStatus - who owns which keys" vertex="1">
+          <mxGeometry height="40" width="440" x="330" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-root" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6d0de;strokeColor=#996185;strokeWidth=2;fontSize=15;fontStyle=1;gradientColor=#d5739d;" value="&lt;font face=&quot;Comic Sans MS&quot;&gt;formStatus&lt;br&gt;&lt;i&gt;JSON string - always echo back&lt;/i&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="260" x="420" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-x" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=14;fontStyle=1;gradientColor=#7ea6e0;" value="&lt;font face=&quot;Comic Sans MS&quot;&gt;xAPI writes these&lt;br&gt;&lt;i&gt;FE must not set them&lt;/i&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="280" x="60" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-s" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcd28;strokeColor=#d79b00;strokeWidth=2;fontSize=14;fontStyle=1;gradientColor=#ffa500;" value="&lt;font face=&quot;Comic Sans MS&quot;&gt;Shared&lt;br&gt;&lt;i&gt;FE creates, xAPI promotes&lt;/i&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="280" x="410" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-f" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=14;fontStyle=1;gradientColor=#97d077;" value="&lt;font face=&quot;Comic Sans MS&quot;&gt;FE-owned&lt;br&gt;&lt;i&gt;xAPI never touches these&lt;/i&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="280" x="760" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-x1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8EFF7;strokeColor=#1D4E89;strokeWidth=2;fontColor=#0F2E52;fontSize=12;fontFamily=Courier New;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;lendingApplyState.status&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="320" x="40" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-x1n" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontColor=#5A5A5A;fontStyle=2;" value="&lt;font style=&quot;font-size: 14px; color: rgb(51, 51, 255);&quot; face=&quot;Comic Sans MS&quot;&gt;&lt;b&gt;&quot;NotStarted&quot; | &quot;InProgress&quot; | &quot;IsComplete&quot;&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="16" width="280" x="50" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-x2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8EFF7;strokeColor=#1D4E89;strokeWidth=2;fontColor=#0F2E52;fontSize=12;fontFamily=Courier New;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;lendingApplyState.otherFinancialProviders&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="370" x="15" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-x2n" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontColor=#5A5A5A;fontStyle=2;" value="&lt;font style=&quot;font-size: 14px; color: rgb(51, 51, 255);&quot; face=&quot;Comic Sans MS&quot;&gt;&lt;b&gt;folded from the PUT field&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="16" width="280" x="75" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-x3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8EFF7;strokeColor=#1D4E89;strokeWidth=2;fontColor=#0F2E52;fontSize=12;fontFamily=Courier New;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;eligibility.feature&lt;br&gt;eligibility.isEligible&lt;br&gt;eligibility.reason&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="70" width="320" x="45" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-x3n" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontColor=#5A5A5A;fontStyle=2;" value="&lt;font style=&quot;font-size: 14px; color: rgb(51, 51, 255);&quot; face=&quot;Comic Sans MS&quot;&gt;set once on application start&lt;/font&gt;" vertex="1">
+          <mxGeometry height="16" width="280" x="85" y="528" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-x4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8EFF7;strokeColor=#1D4E89;strokeWidth=2;fontColor=#0F2E52;fontSize=12;fontFamily=Courier New;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;your-income&lt;br&gt;fixed-commitments&lt;br&gt;essential-living-costs&lt;br&gt;recurring-expenses&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="85" width="320" x="45" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-x4n" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontColor=#5A5A5A;fontStyle=2;" value="&lt;font style=&quot;font-size: 14px; color: rgb(51, 51, 255);&quot; face=&quot;Comic Sans MS&quot;&gt;stamped by finance-summary&lt;/font&gt;" vertex="1">
+          <mxGeometry height="16" width="280" x="85" y="653" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-s1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=3;fontSize=12;fontFamily=Courier New;fontStyle=1;gradientColor=#ffd966;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;likely-changes&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="280" x="410" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-s2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFBF0;strokeColor=#B8860B;strokeWidth=1;fontColor=#5C4405;fontSize=11;" value="&lt;font style=&quot;font-size: 15px;&quot; face=&quot;Courier New&quot;&gt;&lt;b style=&quot;&quot;&gt;FE creates the key&lt;/b&gt;&lt;br&gt;e.g. &quot;likely-changes&quot;: &quot;NotStarted&quot;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="55" width="280" x="410" y="382" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-s3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFBF0;strokeColor=#B8860B;strokeWidth=1;fontColor=#5C4405;fontSize=11;" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;Courier New&quot;&gt;&lt;b style=&quot;&quot;&gt;xAPI stamps the value&lt;/b&gt;&lt;br&gt;promoted to &quot;IsComplete&quot; when&lt;br&gt;isIncomeLikelyToChange is supplied on PUT&lt;/font&gt;" vertex="1">
+          <mxGeometry height="65" width="280" x="410" y="459" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-es2" edge="1" parent="1" source="ow-s1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#B8860B;strokeWidth=1;endArrow=none;" target="ow-s2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-es3" edge="1" parent="1" source="ow-s2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#B8860B;strokeWidth=1;endArrow=none;" target="ow-s3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-f1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;strokeWidth=2;fontSize=12;fontFamily=Courier New;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;any other custom keys&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="280" x="760" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-f1n" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontColor=#5A5A5A;fontStyle=2;" value="&lt;font style=&quot;font-size: 14px; color: rgb(0, 51, 26);&quot; face=&quot;Comic Sans MS&quot;&gt;&lt;b&gt;preserved unchanged on every call&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="16" width="280" x="760" y="358" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-ex" edge="1" parent="1" source="ow-root" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1D4E89;strokeWidth=2;" target="ow-x">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-es" edge="1" parent="1" source="ow-root" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#B8860B;strokeWidth=2;" target="ow-s">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-ef" edge="1" parent="1" source="ow-root" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2E7D5B;strokeWidth=2;" target="ow-f">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-ex1" edge="1" parent="1" source="ow-x" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1D4E89;strokeWidth=1;endArrow=none;" target="ow-x1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-es1" edge="1" parent="1" source="ow-s" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#B8860B;strokeWidth=2;" target="ow-s1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-ef1" edge="1" parent="1" source="ow-f" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2E7D5B;strokeWidth=1;endArrow=none;" target="ow-f1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-rule" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;fontSize=12;align=left;spacingLeft=12;gradientColor=#b3b3b3;" value="&lt;font face=&quot;Comic Sans MS&quot; style=&quot;font-size: 14px;&quot;&gt;&lt;b style=&quot;&quot;&gt;The one rule that matters:&lt;/b&gt; the frontend must always echo back the formStatus returned by the last response. Rebuilding it from scratch silently drops keys that other screens — and the xAPI - put in the bag.&lt;/font&gt;" vertex="1">
+          <mxGeometry height="85" width="650" x="400" y="590" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

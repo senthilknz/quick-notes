@@ -1,0 +1,61 @@
+<mxfile host="Electron" agent="formstatus-guide">
+  <diagram name="Journey flow" id="flow">
+    <mxGraphModel dx="1451" dy="895" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fl-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1F2124;" value="One journey, call by call" vertex="1">
+          <mxGeometry height="40" width="440" x="230" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-sub" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontColor=#5A5A5A;" value="The happy path. Watch the formStatus grow." vertex="1">
+          <mxGeometry height="24" width="440" x="230" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-hdr1" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#5A5A5A;" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;THE CALL&lt;/font&gt;" vertex="1">
+          <mxGeometry height="20" width="420" x="60" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-hdr2" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=11;fontStyle=1;fontColor=#5A5A5A;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;formStatus AFTER THE CALL&lt;/font&gt;" vertex="1">
+          <mxGeometry height="20" width="500" x="520" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;fontSize=13;align=left;spacingLeft=15;gradientColor=#b3b3b3;" value="&lt;font face=&quot;Comic Sans MS&quot; style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;1. POST /personal-lending&lt;/b&gt;&lt;br&gt;&lt;br&gt;Send: {} or FE-owned keys&lt;br&gt;Plus: isJointApplication&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="420" x="60" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-1s" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#8C8C8C;strokeWidth=2;fontColor=#1F2124;fontSize=12;align=left;spacingLeft=15;" value="&lt;font face=&quot;Tahoma&quot; style=&quot;font-size: 14px;&quot;&gt;status = &lt;b style=&quot;&quot;&gt;NotStarted&lt;/b&gt;&lt;br&gt;eligibility block added&lt;br&gt;&lt;br&gt;&lt;i style=&quot;&quot;&gt;section markers: none yet&lt;/i&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="500" x="520" y="125" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcd28;strokeColor=#d79b00;strokeWidth=2;fontSize=13;align=left;spacingLeft=15;gradientColor=#ffa500;" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;Comic Sans MS&quot;&gt;&lt;b&gt;2. POST .../documents&lt;/b&gt;&lt;br&gt;&lt;br&gt;Send: formStatus + base64 PDFs&lt;br&gt;Repeat uploads: no further change&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="420" x="60" y="305" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-2s" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDF3E7;strokeColor=#C77700;strokeWidth=2;fontColor=#1F2124;fontSize=12;align=left;spacingLeft=15;" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;Tahoma&quot;&gt;status = &lt;b style=&quot;&quot;&gt;InProgress&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;i style=&quot;&quot;&gt;section markers: none yet&lt;/i&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="500" x="520" y="305" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcd28;strokeColor=#d79b00;strokeWidth=2;fontSize=13;align=left;spacingLeft=15;gradientColor=#ffa500;" value="&lt;font face=&quot;Comic Sans MS&quot; style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;3. POST .../finance-summary&lt;/b&gt;&lt;br&gt;&lt;br&gt;Send: formStatus&lt;br&gt;Poll until 200 — 503 means not ready&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="420" x="60" y="485" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-3s" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDF3E7;strokeColor=#C77700;strokeWidth=2;fontColor=#1F2124;fontSize=12;align=left;spacingLeft=15;" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;Tahoma&quot;&gt;status = &lt;b style=&quot;&quot;&gt;InProgress&lt;/b&gt; (unchanged)&lt;br&gt;&lt;br&gt;your-income ✓&amp;nbsp;&amp;nbsp;fixed-commitments ✓&lt;br&gt;essential-living-costs ✓&amp;nbsp;&amp;nbsp;recurring-expenses ✓&lt;br&gt;&lt;i style=&quot;&quot;&gt;likely-changes — still waiting on the FE&lt;/i&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="500" x="520" y="485" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=13;align=left;spacingLeft=15;gradientColor=#97d077;" value="&lt;font face=&quot;Comic Sans MS&quot; style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;4. PUT /personal-lending/{id}&lt;/b&gt;&lt;br&gt;&lt;br&gt;Send: formStatus + isIncomeLikelyToChange&lt;br&gt;Plus the four catalogues&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="420" x="60" y="665" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-4s" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E3F1EA;strokeColor=#2E7D5B;strokeWidth=2;fontColor=#1F2124;fontSize=12;align=left;spacingLeft=15;" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;Tahoma&quot;&gt;likely-changes stamped ✓&lt;br&gt;all five markers now IsComplete&lt;br&gt;&lt;br&gt;status = &lt;b style=&quot;&quot;&gt;IsComplete&lt;/b&gt;&lt;br&gt;&lt;i style=&quot;&quot;&gt;three mutations, one request&lt;/i&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="110" width="500" x="520" y="665" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-e1" edge="1" parent="1" source="fl-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4C7AA9;strokeWidth=3;" target="fl-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-e2" edge="1" parent="1" source="fl-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4C7AA9;strokeWidth=3;" target="fl-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-e3" edge="1" parent="1" source="fl-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4C7AA9;strokeWidth=3;" target="fl-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-side" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=3;fontSize=11;align=left;spacingLeft=12;gradientColor=#ffd966;" value="&lt;font face=&quot;Comic Sans MS&quot; style=&quot;font-size: 14px;&quot;&gt;&lt;b style=&quot;&quot;&gt;Create likely-changes during steps 1–3&lt;/b&gt;&lt;br&gt;e.g. &quot;likely-changes&quot;: &quot;NotStarted&quot;&lt;br&gt;&lt;br&gt;Any time before step 4. If the key is missing when&lt;br&gt;step 4 runs, the journey cannot complete.&lt;/font&gt;" vertex="1">
+          <mxGeometry height="105" width="420" x="60" y="805" as="geometry" />
+        </mxCell>
+        <mxCell id="fl-echo" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0F0F0;strokeColor=#5A5A5A;strokeWidth=2;fontSize=12;fontColor=#1F2124;align=left;spacingLeft=12;" value="&lt;font style=&quot;font-size: 14px;&quot; face=&quot;Tahoma&quot;&gt;&lt;b style=&quot;&quot;&gt;At every step:&lt;/b&gt; send back the exact formStatus string from the previous response. The response is always the source of truth — no follow-up GET is needed.&lt;/font&gt;" vertex="1">
+          <mxGeometry height="105" width="500" x="520" y="805" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
