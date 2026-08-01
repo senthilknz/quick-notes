@@ -1,0 +1,95 @@
+<mxfile host="app.diagrams.net" agent="formstatus-guide" type="device">
+  <diagram name="Key ownership" id="ownership">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="ow-title" value="formStatus — who owns which keys" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1F2124;" vertex="1" parent="1">
+          <mxGeometry x="330" y="20" width="440" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ow-root" value="formStatus&lt;br&gt;&lt;i&gt;JSON string — always echo back&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3C3F44;strokeColor=#1F2124;strokeWidth=2;fontColor=#FFFFFF;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="80" width="260" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ow-x" value="xAPI writes these&lt;br&gt;&lt;i&gt;FE must not set them&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1D4E89;strokeColor=#0F2E52;strokeWidth=2;fontColor=#FFFFFF;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="210" width="280" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ow-s" value="FE-owned&lt;br&gt;&lt;i&gt;xAPI never reads or touches these&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E7D5B;strokeColor=#1B4D37;strokeWidth=2;fontColor=#FFFFFF;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="210" width="280" height="60" as="geometry" />
+        </mxCell>
+
+
+        <mxCell id="ow-x1" value="lendingApplyState.status" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8EFF7;strokeColor=#1D4E89;strokeWidth=2;fontColor=#0F2E52;fontSize=12;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="60" y="320" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-x1n" value="&quot;NotStarted&quot; | &quot;InProgress&quot; | &quot;IsComplete&quot;" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontColor=#5A5A5A;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="358" width="280" height="16" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ow-x2" value="lendingApplyState.otherFinancialProviders" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8EFF7;strokeColor=#1D4E89;strokeWidth=2;fontColor=#0F2E52;fontSize=12;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="60" y="382" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-x2n" value="folded from the PUT field" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontColor=#5A5A5A;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="420" width="280" height="16" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ow-x3" value="eligibility.feature&lt;br&gt;eligibility.isEligible&lt;br&gt;eligibility.reason" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8EFF7;strokeColor=#1D4E89;strokeWidth=2;fontColor=#0F2E52;fontSize=12;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="60" y="444" width="280" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-x3n" value="set once on application start" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontColor=#5A5A5A;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="512" width="280" height="16" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ow-x4" value="your-income&lt;br&gt;fixed-commitments&lt;br&gt;essential-living-costs&lt;br&gt;recurring-expenses" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8EFF7;strokeColor=#1D4E89;strokeWidth=2;fontColor=#0F2E52;fontSize=12;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="60" y="536" width="280" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-x4n" value="stamped by finance-summary" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontColor=#5A5A5A;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="619" width="280" height="16" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ow-s1" value="any other custom keys" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E3F1EA;strokeColor=#2E7D5B;strokeWidth=2;fontColor=#1B4D37;fontSize=12;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="410" y="320" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-s2" value="&lt;b&gt;preserved unchanged&lt;/b&gt;&lt;br&gt;the xAPI never reads them" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F2F9F5;strokeColor=#2E7D5B;strokeWidth=1;fontColor=#1B4D37;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="410" y="382" width="280" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-s3" value="&lt;b&gt;safe for FE state&lt;/b&gt;&lt;br&gt;anything stored here round-trips&lt;br&gt;untouched on every call" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F2F9F5;strokeColor=#2E7D5B;strokeWidth=1;fontColor=#1B4D37;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="410" y="459" width="280" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-es2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2E7D5B;strokeWidth=1;endArrow=none;" edge="1" parent="1" source="ow-s1" target="ow-s2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-es3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2E7D5B;strokeWidth=1;endArrow=none;" edge="1" parent="1" source="ow-s2" target="ow-s3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+
+        <mxCell id="ow-ex" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1D4E89;strokeWidth=2;" edge="1" parent="1" source="ow-root" target="ow-x">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-es" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2E7D5B;strokeWidth=2;" edge="1" parent="1" source="ow-root" target="ow-s">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-ex1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1D4E89;strokeWidth=1;endArrow=none;" edge="1" parent="1" source="ow-x" target="ow-x1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-es1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#2E7D5B;strokeWidth=2;" edge="1" parent="1" source="ow-s" target="ow-s1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ow-rule" value="&lt;b&gt;The one rule that matters:&lt;/b&gt; the frontend must always echo back the formStatus returned by the last response. Rebuilding it from scratch silently drops keys that other screens — and the xAPI — put in the bag. All five section markers are xAPI-owned; the frontend creates none of them." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0F0F0;strokeColor=#5A5A5A;strokeWidth=2;fontSize=12;fontColor=#1F2124;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="410" y="560" width="630" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-x5" value="likely-changes" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E8EFF7;strokeColor=#1D4E89;strokeWidth=2;fontColor=#0F2E52;fontSize=12;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="60" y="643" width="280" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ow-x5n" value="created and stamped on PUT, when&lt;br&gt;isIncomeLikelyToChange is supplied" style="text;html=1;align=left;verticalAlign=middle;fontSize=10;fontColor=#5A5A5A;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="681" width="280" height="26" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

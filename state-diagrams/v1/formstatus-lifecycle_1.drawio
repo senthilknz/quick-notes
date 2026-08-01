@@ -1,0 +1,88 @@
+<mxfile host="app.diagrams.net" agent="formstatus-guide" type="device">
+  <diagram name="Journey lifecycle" id="lifecycle">
+    <mxGraphModel dx="800" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="lc-title" value="formStatus — journey lifecycle" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1F2124;" vertex="1" parent="1">
+          <mxGeometry x="140" y="20" width="440" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lc-sub" value="Three states, and the xAPI decides all three." style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontColor=#5A5A5A;" vertex="1" parent="1">
+          <mxGeometry x="140" y="58" width="440" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lc-start" value="" style="ellipse;html=1;fillColor=#1F2124;strokeColor=#1F2124;" vertex="1" parent="1">
+          <mxGeometry x="345" y="110" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lc-ns" value="NotStarted" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8C8C8C;strokeColor=#5A5A5A;strokeWidth=2;fontColor=#FFFFFF;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="265" y="215" width="190" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="lc-nsn" value="Application exists.&lt;br&gt;Nothing uploaded yet." style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#5A5A5A;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="475" y="215" width="220" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lc-ip" value="InProgress" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#C77700;strokeColor=#8A5300;strokeWidth=2;fontColor=#FFFFFF;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="265" y="410" width="190" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="lc-ipn" value="Documents in.&lt;br&gt;Section markers filling up.&lt;br&gt;Most of the journey lives here." style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#8A5300;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="620" y="405" width="200" height="65" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lc-ic" value="IsComplete" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E7D5B;strokeColor=#1B4D37;strokeWidth=2;fontColor=#FFFFFF;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="265" y="615" width="190" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="lc-icn" value="All five section markers&lt;br&gt;stamped IsComplete.&lt;br&gt;Terminal — never goes back." style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#1B4D37;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="620" y="610" width="200" height="65" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lc-end" value="" style="ellipse;shape=endState;html=1;fillColor=#1F2124;strokeColor=#1F2124;" vertex="1" parent="1">
+          <mxGeometry x="345" y="750" width="30" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lc-e1" value="POST /personal-lending&lt;br&gt;(always forced on create)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4C7AA9;strokeWidth=2;fontSize=11;fontColor=#1F2124;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="lc-start" target="lc-ns">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lc-e2" value="POST .../documents&lt;br&gt;(first successful upload)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4C7AA9;strokeWidth=2;fontSize=11;fontColor=#1F2124;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="lc-ns" target="lc-ip">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lc-e3" value="POST .../documents&lt;br&gt;(already InProgress → PATCH skipped)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;strokeColor=#8A5300;strokeWidth=2;fontSize=11;fontColor=#8A5300;labelBackgroundColor=#FFFFFF;align=right;" edge="1" parent="1" source="lc-ip" target="lc-ip">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="120" y="424" />
+              <mxPoint x="120" y="451" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="lc-e4" value="PUT /personal-lending/{id}&lt;br&gt;(all 5 sections IsComplete)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2E7D5B;strokeWidth=3;fontSize=11;fontColor=#1B4D37;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="lc-ip" target="lc-ic">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lc-e5" value="PUT /personal-lending/{id}&lt;br&gt;(already IsComplete → no-op)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;strokeColor=#1B4D37;strokeWidth=2;fontSize=11;fontColor=#1B4D37;labelBackgroundColor=#FFFFFF;align=right;" edge="1" parent="1" source="lc-ic" target="lc-ic">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="120" y="629" />
+              <mxPoint x="120" y="656" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="lc-e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#1B4D37;strokeWidth=2;" edge="1" parent="1" source="lc-ic" target="lc-end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lc-note" value="&lt;b&gt;The frontend never sets lendingApplyState.status.&lt;/b&gt; Every transition above is decided by the xAPI. A value sent by the frontend is overwritten or ignored, and no transition can be triggered by writing to this key directly." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4CE;strokeColor=#B8860B;strokeWidth=2;fontSize=12;fontColor=#1F2124;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="830" width="700" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lc-wire" value="&lt;b&gt;Wire values are case sensitive:&lt;/b&gt;&amp;nbsp;&amp;nbsp;&quot;NotStarted&quot;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&quot;InProgress&quot;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&quot;IsComplete&quot;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0F0F0;strokeColor=#5A5A5A;strokeWidth=1;fontSize=12;fontColor=#1F2124;align=left;spacingLeft=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="920" width="700" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

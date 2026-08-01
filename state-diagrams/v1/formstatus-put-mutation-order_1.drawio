@@ -1,0 +1,124 @@
+<mxfile host="app.diagrams.net" agent="formstatus-guide" type="device">
+  <diagram name="PUT mutation order" id="putorder">
+    <mxGraphModel dx="1100" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="p-title" value="PUT /personal-lending/{id} — mutation order" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;fontColor=#1F2124;" vertex="1" parent="1">
+          <mxGeometry x="230" y="20" width="640" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="p-sub" value="Four steps, top to bottom, all inside a single request. Several mutations can cascade in one call." style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontColor=#5A5A5A;" vertex="1" parent="1">
+          <mxGeometry x="230" y="58" width="640" height="24" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p-req" value="&lt;b&gt;Request in&lt;/b&gt;&amp;nbsp;&amp;nbsp;formStatus (mandatory) + any optional fields" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3C3F44;strokeColor=#1F2124;strokeWidth=2;fontColor=#FFFFFF;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="290" y="100" width="420" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p-d1" value="&lt;b&gt;Step 1&lt;/b&gt;&lt;br&gt;otherFinancialProviders supplied?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#E8EFF7;strokeColor=#1D4E89;strokeWidth=2;fontColor=#0F2E52;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="290" y="185" width="420" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="p-a1" value="lendingApplyState.otherFinancialProviders&lt;br&gt;= the supplied value&lt;br&gt;&lt;i&gt;row 1 — lives inside formStatus only, never sent downstream as its own field&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1D4E89;strokeColor=#0F2E52;strokeWidth=2;fontColor=#FFFFFF;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="330" width="420" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="p-s1" value="skip" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0F0F0;strokeColor=#8C8C8C;strokeWidth=2;fontColor=#5A5A5A;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="800" y="215" width="200" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p-d2" value="&lt;b&gt;Step 2&lt;/b&gt;&lt;br&gt;isIncomeLikelyToChange supplied&lt;br&gt;AND likely-changes not already&lt;br&gt;&quot;IsComplete&quot;?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFF4CE;strokeColor=#B8860B;strokeWidth=2;fontColor=#5C4405;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="290" y="435" width="420" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p-a2" value="likely-changes = &quot;IsComplete&quot;&lt;br&gt;&lt;i&gt;row 2 — the key is created if absent&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#B8860B;strokeColor=#7A5A07;strokeWidth=2;fontColor=#FFFFFF;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="620" width="420" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p-s2" value="No mutation to likely-changes&lt;br&gt;&lt;br&gt;&lt;i&gt;row 3 — already IsComplete&lt;br&gt;row 4 — field not supplied&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0F0F0;strokeColor=#8C8C8C;strokeWidth=2;fontColor=#5A5A5A;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="800" y="455" width="200" height="105" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p-d3" value="&lt;b&gt;Step 3&lt;/b&gt;&lt;br&gt;All five section markers now &quot;IsComplete&quot;?&lt;br&gt;&lt;i&gt;evaluated after steps 1 and 2&lt;/i&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#E3F1EA;strokeColor=#2E7D5B;strokeWidth=2;fontColor=#1B4D37;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="290" y="710" width="420" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="p-a3" value="lendingApplyState.status = &quot;IsComplete&quot;&lt;br&gt;&lt;i&gt;row 5 — row 7 makes a repeat call a no-op&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E7D5B;strokeColor=#1B4D37;strokeWidth=2;fontColor=#FFFFFF;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="875" width="420" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p-s3" value="No status change&lt;br&gt;&lt;i&gt;row 6 — request still succeeds&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0F0F0;strokeColor=#8C8C8C;strokeWidth=2;fontColor=#5A5A5A;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="800" y="745" width="200" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p-s4" value="&lt;b&gt;Step 4 — build the downstream PATCH&lt;/b&gt;&lt;br&gt;final formStatus + income, fixedCommitments,&lt;br&gt;recurringExpenses, essentialLivingCosts, isIncomeLikelyToChange" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4C7AA9;strokeColor=#2E5A80;strokeWidth=2;fontColor=#FFFFFF;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="290" y="965" width="420" height="75" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p-resp" value="&lt;b&gt;Response out&lt;/b&gt;&amp;nbsp;&amp;nbsp;echoes the persisted formStatus — the source of truth" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#3C3F44;strokeColor=#1F2124;strokeWidth=2;fontColor=#FFFFFF;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="290" y="1075" width="420" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p-e0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5A5A5A;strokeWidth=2;" edge="1" parent="1" source="p-req" target="p-d1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-e1y" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#1D4E89;strokeWidth=2;fontSize=12;fontStyle=1;fontColor=#0F2E52;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p-d1" target="p-a1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-e1n" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8C8C8C;strokeWidth=2;fontSize=12;fontColor=#5A5A5A;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p-d1" target="p-s1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-e1r" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8C8C8C;strokeWidth=2;dashed=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="p-s1" target="p-d2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="510" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p-e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5A5A5A;strokeWidth=2;" edge="1" parent="1" source="p-a1" target="p-d2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p-e2y" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#B8860B;strokeWidth=3;fontSize=12;fontStyle=1;fontColor=#7A5A07;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p-d2" target="p-a2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-e2n" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8C8C8C;strokeWidth=2;fontSize=12;fontColor=#5A5A5A;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p-d2" target="p-s2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-e2r" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8C8C8C;strokeWidth=2;dashed=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="p-s2" target="p-d3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="775" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p-e23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5A5A5A;strokeWidth=2;" edge="1" parent="1" source="p-a2" target="p-d3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p-e3y" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#2E7D5B;strokeWidth=3;fontSize=12;fontStyle=1;fontColor=#1B4D37;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p-d3" target="p-a3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-e3n" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8C8C8C;strokeWidth=2;fontSize=12;fontColor=#5A5A5A;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="p-d3" target="p-s3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-e3r" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#8C8C8C;strokeWidth=2;dashed=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="p-s3" target="p-s4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="900" y="1002" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p-e34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5A5A5A;strokeWidth=2;" edge="1" parent="1" source="p-a3" target="p-s4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p-e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#5A5A5A;strokeWidth=2;" edge="1" parent="1" source="p-s4" target="p-resp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p-cascade" value="&lt;b&gt;This is the cascade.&lt;/b&gt; Answering &quot;is your income likely to change?&quot; can run all three mutations in one request: fold the provider flag, create and stamp likely-changes, and complete the journey — if every other section is already done." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4CE;strokeColor=#B8860B;strokeWidth=2;fontSize=12;fontColor=#1F2124;align=left;spacingLeft=12;verticalAlign=top;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1150" width="940" height="65" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p-rowref" value="Row numbers refer to the decision table in §6.5 of the guide." style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#5A5A5A;fontStyle=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1220" width="500" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
