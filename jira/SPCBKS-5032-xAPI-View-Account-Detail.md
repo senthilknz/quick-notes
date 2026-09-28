@@ -42,11 +42,15 @@ h3. Open Questions
 # *Balance sign* - SYST shows {{onlineBalance}} positive with {{onlineBalanceCredit: false}} for a balance owing. Confirm the xAPI returns it as a positive amount
 # *Non-loan account* - a valid account that isn't a Personal Loan: 404 or 400?
 # *Downstream timeout* - agree the value and whether any retry applies
+# *XSRF token lifetime* - is the token static per environment, or does it expire / need refreshing? If it expires, how does the xAPI obtain a new one?
+# *Credential rotation* - who owns the API key and token, and how are rotations communicated?
 
 h3. Dependencies
 * Downstream: Power Lending host API {{POST /powerlending/host/v2/account-detail}} (CIF Data API v1.0.1)
 ** SYST: {{https://ingress-lending.syst.k8stest.cloud.westpac.co.nz}} - verified returning 200
 ** Contract and Bruno collection ({{power-lending.zip}}): see View Account Detail page, External References
+** Required headers: {{x-api-key}}, {{x-xsrf-token}}, {{x-correlation-id}}, {{content-type}} / {{accept: application/json}}
+* Credentials: API key and XSRF token to be provided by the Power Lending team for each environment (SYST, UAT, Prod), and configured as secrets - not in code or config files
 * Test data: Personal Loan accounts on each frequency (FN, WK, MN), plus a closed loan, a non-loan account, a joint loan and another customer's loan
 
 h3. Reference
@@ -120,5 +124,11 @@ h3. Definition of Done
 
 *AC12 - Security & logging*
 *Then* the account number and monetary values are not written to logs
-*And* Correlation-Id is logged and propagated to the downstream call
+*And* Correlation-Id is logged and propagated to the downstream call as {{x-correlation-id}}
+
+*AC13 - Downstream authentication*
+*Then* every downstream call sends {{x-api-key}} and {{x-xsrf-token}}, read from the environment's secret configuration
+*And* the key and token never appear in logs, error responses or source control
+*Given* the downstream rejects the credentials (401/403)
+*Then* the xAPI returns 500 DOWNSTREAM_ERROR (not 401), since the failure is not the caller's
 ```
