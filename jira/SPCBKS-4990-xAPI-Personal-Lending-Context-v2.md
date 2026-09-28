@@ -49,9 +49,13 @@ h3. Technical Notes
 * Local config is validated at startup; the service fails fast on invalid config.
 
 h3. Open Questions
-# Supported {{productType}} + {{processType}} combinations (needed for the "unsupported combination" 400)
-# Does configuration differ between TopUp and New?
-# Who signs off the local config values, and how are changes requested before the downstream API is live? (Each change needs a deploy)
+Answer each in the Confluence contract page, record the decision here, then update the linked AC. The story can't close while any row is Open.
+||#||Question||Owner||Status||Affects||Answer / Decision||
+|Q1|Supported {{productType}} + {{processType}} combinations (needed for the "unsupported combination" 400)|[BA / Product Owner]|Open|AC2, AC5| |
+|Q2|Does configuration differ between TopUp and New?|[BA / Product Owner]|Open|Sub-tasks 1 & 2| |
+|Q3|Who signs off the local config values, and how are changes requested before the downstream API is live? (Each change needs a deploy)|[Product Owner]|Open|DoD| |
+|Q4|Is {{code}} returned on repayment frequencies? The mapping table defines LCS codes, but the response examples omit it.|[Solution Designer]|Open|Sub-task 2| |
+|Q5|Weekly is not offered, but View Account Detail (SPCBKS-5032) can return Weekly for the existing loan. Is that intended for Top-Up?|[BA / Product Owner]|Open|Sub-task 2, SPCBKS-5032| |
 
 h3. Reference
 * [Context - PL experience Bootstrap And Configuration|https://confluence.westpac.co.nz/spaces/BAPCBKS/pages/1129880395/Context+-+PL+experience+Bootstrap+And+Configuration] - contract of record, version [vX]
@@ -92,7 +96,7 @@ h3. Definition of Done
 *AC4 - Echo*
 *Then* {{data.productType}} and {{data.processType}} echo the request
 
-*AC5 - Invalid request*
+*AC5 - Invalid request* _(supported combinations pending Q1)_
 *Then* 400 BAD_REQUEST is returned when:
 * both modes are supplied
 * neither mode is supplied (including {{includeAllConfiguration: false}} with no types)
@@ -167,12 +171,11 @@ h3. Details
 * Initial values: Fortnightly (LCS {{FORTNIGHTLY}}), Monthly (LCS {{MONTHLY}})
 
 h3. Open Questions
-# Is {{code}} returned? The mapping table defines LCS codes, but the response examples omit it.
-# Weekly is not offered, but View Account Detail (SPCBKS-5032) can return Weekly for the existing loan. Is that intended for Top-Up?
+See Q4 and Q5 in the parent story (SPCBKS-4990).
 
 h3. Acceptance Criteria
 * Requesting {{REPAYMENT_FREQUENCIES}} returns {{configuration.repaymentFrequencies}}, and it is included in "All supported" mode
-* Values are returned in the configured display order, each with {{value}} and {{label}} ({{code}} per Open Question 1)
+* Values are returned in the configured display order, each with {{value}} and {{label}} ({{code}} pending parent story Q4)
 * Unit and integration tests cover the above
 ```
 
