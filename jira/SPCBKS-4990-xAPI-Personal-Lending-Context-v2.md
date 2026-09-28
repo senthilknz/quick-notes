@@ -201,3 +201,5 @@ h3. Acceptance Criteria
 * Local config removed, or kept as an agreed fallback
 * Contract tests pass unchanged against the existing OpenAPI spec
 ```
+
+https://gojira.westpac.co.nz/issues/?jql=parent%20%3D%20SPCBKS-4990%20OR%20key%20%3D%20SPCBKS-4990%20ORDER%20BY%20key
