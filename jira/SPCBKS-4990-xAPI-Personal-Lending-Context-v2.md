@@ -56,7 +56,22 @@ h3. Open Questions
 h3. Reference
 * [Context - PL experience Bootstrap And Configuration|https://confluence.westpac.co.nz/spaces/BAPCBKS/pages/1129880395/Context+-+PL+experience+Bootstrap+And+Configuration] - contract of record, version [vX]
 * [Swagger - Customer Offer Personal Lending xAPI V2|https://confluence.westpac.co.nz/spaces/BAPCBKS/pages/1119525294/Swagger+Customer+Offer+-+Personal+Lending+xAPI+V2]
-* Definition of Done: [team DoD page]
+
+h3. Definition of Done
+* All acceptance criteria met and demoed to the tester / BA
+* All sub-tasks (configuration groups) complete
+* Local config values signed off by the business owner
+* Open questions resolved on the Confluence contract page; affected ACs updated
+* Code reviewed and merged to main; pipeline green
+* Unit tests written for new logic; coverage meets team threshold
+* Integration tests cover all ACs
+* Contract tests pass against the published OpenAPI spec
+* Confluence contract page / Swagger updated if the contract changed
+* Security scans pass (SAST / dependency scan); no PII or credentials in logs
+* Logging checked in Splunk: Correlation-Id present
+* Deployed to SYST and smoke tested
+* Test cases linked to this story and passed by QA
+* No open Critical / High defects
 ```
 
 **Acceptance Criteria**
@@ -201,5 +216,3 @@ h3. Acceptance Criteria
 * Local config removed, or kept as an agreed fallback
 * Contract tests pass unchanged against the existing OpenAPI spec
 ```
-
-https://gojira.westpac.co.nz/issues/?jql=parent%20%3D%20SPCBKS-4990%20OR%20key%20%3D%20SPCBKS-4990%20ORDER%20BY%20key

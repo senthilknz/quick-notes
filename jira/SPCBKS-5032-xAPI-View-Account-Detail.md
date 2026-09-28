@@ -53,7 +53,20 @@ h3. Reference
 * [View Account Detail|https://confluence.westpac.co.nz/spaces/BAPCBKS/pages/1132545778/View+Account+Detail] - contract of record, version [vX]
 * [Swagger - Customer Offer Personal Lending xAPI V2|https://confluence.westpac.co.nz/spaces/BAPCBKS/pages/1119525294/Swagger+Customer+Offer+-+Personal+Lending+xAPI+V2]
 * Bruno collection: power-lending.zip (attached to the View Account Detail page)
-* Definition of Done: [team DoD page]
+
+h3. Definition of Done
+* All acceptance criteria met and demoed to the tester / BA
+* Open questions resolved on the Confluence contract page; affected ACs updated
+* Code reviewed and merged to main; pipeline green
+* Unit tests written for new logic; coverage meets team threshold
+* Integration tests cover all ACs, with the downstream stubbed (e.g. WireMock)
+* Contract tests pass against the published OpenAPI spec
+* Confluence contract page / Swagger updated if the contract changed
+* Security scans pass (SAST / dependency scan); no PII or credentials in logs
+* Logging checked in Splunk: Correlation-Id present, no sensitive values
+* Deployed to SYST and smoke tested
+* Test cases linked to this story and passed by QA
+* No open Critical / High defects
 ```
 
 **Acceptance Criteria**
