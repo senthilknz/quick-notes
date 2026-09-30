@@ -83,11 +83,9 @@ h3. References
 
 *AC7 - Downstream failure*
 *Given* the Eligibility API fails or times out
+*Or* the customer is eligible but Power Lending account detail fails or times out
 *When* the endpoint is called
-*Then* a service error is returned as defined by the API contract
-*Given* the customer is eligible but Power Lending account detail fails or times out
-*When* the endpoint is called
-*Then* 200 is returned with the eligibility result, no account summary, and a warning with recovery USE_PARTIAL_DATA
+*Then* a service error is returned as defined by the API contract, with no eligibility result or account summary
 
 *AC8 - Contract compliance, security & logging*
 *Then* response and error payloads conform to the API contract and the xAPI Specification
